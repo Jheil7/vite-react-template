@@ -1,8 +1,18 @@
-import "./App.css";
-import Body from "./Body";
+import Header from "./Header";
+import Home from "./Home";
+import Projects from "./Projects";
+import Contact from "./Contact";
+import React from "react";
+import "./index.css";
 
-function App() {
-  return <Body />;
-}
+const App: React.FC = () => {
+  return (
+    <React.Fragment>
+      <Header /> {/* Always visible */}
+      <Projects />
+      <Contact />
+    </React.Fragment>
+  );
+};
 
 export default App;
