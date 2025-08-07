@@ -11,14 +11,14 @@ import Container from "@mui/material/Container";
 const projects = [
   {
     title: "Gamucatex",
-    image: "public/images/Tectonicus.png",
+    image: "/public/images/Tectonicus.png",
     description: "Start up company where I worked on Tectonicus",
     linkURL: "https://gamucatex.itch.io/tectonicus",
   },
 
   {
     title: "Extinguished",
-    video: "public/videos/ExtinguishedMP4.mp4",
+    video: "/public/videos/ExtinguishedMP4.mp4",
     description:
       "A 2D platformer made in a 2-week game jam. Navigate puzzles and avoid hazards!",
     linkURL: "https://jmhe222.itch.io/extinguished",
@@ -26,14 +26,14 @@ const projects = [
 
   {
     title: "Sprout",
-    video: "public/videos/SproutMP4.mp4",
+    video: "/public/videos/SproutMP4.mp4",
     description: "A 2D puzzle/platformer made in a 10 day game jam.",
     linkURL: "https://jmhe222.itch.io/sprout",
   },
 
   {
     title: "Block Bouncer",
-    image: "public/images/Block1.png",
+    image: "/public/images/Block1.png",
     description: "Local multiplayer battler",
     linkURL: "https://jmhe222.itch.io/block-bouncer",
   },
@@ -41,12 +41,12 @@ const projects = [
     title: "Tower Defense Prototype",
     description:
       "A prototype for a survival/tower defense game. Strategize to hold off waves of enemies!",
-    video: "public/videos/SurvivalTDMP4.mp4",
+    video: "/public/videos/SurvivalTDMP4.mp4",
     linkURL: "https://jmhe222.itch.io/survival-tower-defense",
   },
   {
     title: "Shape Shooter",
-    video: "public/videos/GrowthJamClipMP4.mp4",
+    video: "/public/videos/GrowthJamClipMP4.mp4",
     description: "Puzzle shooter/aim trainer for first game jam",
     linkURL: "https://jmhe222.itch.io/shape-shooter",
   },
