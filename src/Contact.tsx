@@ -1,17 +1,12 @@
 import {
-  Button,
-  Icon,
-  IconButton,
   Typography,
   BottomNavigation,
   BottomNavigationAction,
 } from "@mui/material";
 import Box from "@mui/material/Box";
-import React from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
-import Paper from "@mui/material/Paper";
 
 export default function Contact() {
   const contactInfo = "Email Adress: jmhe222@gmail.com";

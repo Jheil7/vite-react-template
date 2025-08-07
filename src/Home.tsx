@@ -1,9 +1,6 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Cards from "./Cards";
-import MultiActionAreaCard from "./Cards";
 
 export default function Home() {
   return (

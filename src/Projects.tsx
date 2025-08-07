@@ -1,10 +1,8 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
-import { Tabs, Tab, Button, Card, CardContent, CardMedia } from "@mui/material";
+import { Tabs, Tab, Button } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 
