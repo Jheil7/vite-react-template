@@ -13,6 +13,8 @@ const projects = [
   {
     title: "Tectonicus",
     image: "/images/Tectonicus.png",
+    altdescription:
+      "Promotional artwork for Tectonicus, a historically accurate narrative card game with illustrated cards and a fantasy-inspired UI.",
     description:
       "A historically accurate narrative card game developed at the indie startup Gamucatex. I contributed to the first iteration of the game’s story mode, created a new save system using JSON (replacing PlayerPrefs), revamped the deckbuilder UI, added card back selection in the store, and transitioned the entire game from a 2D scene to 3D, updating all UI accordingly. I also learned FMOD to add new audio to the game, improved card animations with DOTween, and fixed numerous bugs. Working in a small, fluctuating team of 3–8 developers, I frequently dealt with legacy code and removed dependencies to implement new features cleanly. The game was built in Unity with input from a dedicated team of historians crafting authentic lore and card descriptions.",
     linkURL: "https://gamucatex.itch.io/tectonicus",
@@ -37,6 +39,8 @@ const projects = [
   {
     title: "Block Bouncer",
     image: "/images/Block1.png",
+    altdescription:
+      "Screenshot of the title screen from Block Bouncer, a local multiplayer battler where players destroy and replace blocks to knock each other off platforms.",
     description:
       "A local multiplayer battler inspired by couch co-op favorites like Duck Game, Gang Beasts, and Super Smash Bros. The objective is to knock your opponent off their platform using two primary methods: slamming one of your own blocks (which removes the corresponding block on your opponent’s side), or pelting them with rubble. Rubble is earned by breaking your own blocks and can be fired repeatedly to build up knockback, similar to the damage/launch system in Super Smash Bros. Blocks aren’t gone forever as you can shoot a block back down to replace it, creating opportunities to recover space, bait your opponent, or force mistakes. I developed all core gameplay systems in Unity, including player movement, block destruction/replacement, rubble spawning, hit accumulation, and knockback physics. The game was designed for fast, chaotic matches that reward both aggressive play and clever block management. I plan to expand the game with an online lobby system in the future to allow remote multiplayer without matchmaking.",
     linkURL: "https://jmhe222.itch.io/block-bouncer",
@@ -105,14 +109,18 @@ export default function ProjectsTabs() {
                 <CardContent>
                   {<SportsEsportsIcon fontSize="large" />}
                 </CardContent>
-                <li>Unity and Unreal Engine</li>
-                <li>C#/C++</li>
-                <li>ScriptableObjects</li>
-                <li>Shader Graph</li>
-                <li>Cinemachine</li>
-                <li>Unity’s New Input System</li>
-                <li>uGUI / UI Toolkit</li>
-                <li>Animation Playback</li>
+                <ul
+                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+                >
+                  <li>Unity and Unreal Engine</li>
+                  <li>C#/C++</li>
+                  <li>ScriptableObjects</li>
+                  <li>Shader Graph</li>
+                  <li>Cinemachine</li>
+                  <li>Unity’s New Input System</li>
+                  <li>uGUI / UI Toolkit</li>
+                  <li>Animation Playback</li>
+                </ul>
               </Typography>
             </Card>
             <Card
@@ -128,12 +136,16 @@ export default function ProjectsTabs() {
               </Typography>
               <Typography variant="h5" component="h5">
                 <CardContent>{<BuildIcon fontSize="large" />}</CardContent>
-                <li>Git</li>
-                <li>Github</li>
-                <li>Itch.io Deployment</li>
-                <li>Gamejams</li>
-                <li>Trello</li>
-                <li>Jira</li>
+                <ul
+                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+                >
+                  <li>Git</li>
+                  <li>Github</li>
+                  <li>Itch.io Deployment</li>
+                  <li>Gamejams</li>
+                  <li>Trello</li>
+                  <li>Jira</li>
+                </ul>
               </Typography>
             </Card>
             <Card
@@ -149,10 +161,14 @@ export default function ProjectsTabs() {
               </Typography>
               <CardContent>{<PublicIcon fontSize="large" />}</CardContent>
               <Typography variant="h5" component="h5">
-                <li>Javascript</li>
-                <li>React</li>
-                <li>HTML</li>
-                <li>CSS</li>
+                <ul
+                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+                >
+                  <li>Javascript</li>
+                  <li>React</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                </ul>
               </Typography>
             </Card>
           </Grid2>
@@ -196,7 +212,7 @@ export default function ProjectsTabs() {
             ) : (
               <img
                 src={projects[selectedTab].image}
-                alt={projects[selectedTab].title}
+                alt={projects[selectedTab].altdescription}
                 style={{
                   width: "100%",
                   maxWidth: "900px",
@@ -206,7 +222,7 @@ export default function ProjectsTabs() {
             )}
 
             {/* Project Description */}
-            <Typography variant="h5" sx={{ mt: 2 }}>
+            <Typography variant="h4" sx={{ mt: 2 }}>
               {projects[selectedTab].title}
             </Typography>
             <Typography variant="body1" sx={{ mt: 1 }}>
