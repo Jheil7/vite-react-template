@@ -102,10 +102,10 @@ export default function ProjectsTabs() {
                 "&:hover": { boxShadow: 12 },
               }}
             >
-              <Typography variant="h4" component="h4">
+              <Typography variant="h4" component="h3">
                 Game Development:
               </Typography>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h4">
                 <CardContent>
                   {<SportsEsportsIcon fontSize="large" />}
                 </CardContent>
@@ -131,10 +131,10 @@ export default function ProjectsTabs() {
                 "&:hover": { boxShadow: 12 },
               }}
             >
-              <Typography variant="h4" component="h4">
+              <Typography variant="h4" component="h3">
                 Tools and Collaboration:
               </Typography>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h4">
                 <CardContent>{<BuildIcon fontSize="large" />}</CardContent>
                 <ul
                   style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
@@ -156,11 +156,11 @@ export default function ProjectsTabs() {
                 "&:hover": { boxShadow: 12 },
               }}
             >
-              <Typography variant="h4" component="h4">
+              <Typography variant="h4" component="h3">
                 Web Development:
               </Typography>
               <CardContent>{<PublicIcon fontSize="large" />}</CardContent>
-              <Typography variant="h5" component="h5">
+              <Typography variant="h5" component="h4">
                 <ul
                   style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
                 >
