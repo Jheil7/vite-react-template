@@ -221,7 +221,7 @@ export default function ProjectsTabs() {
             )}
 
             {/* Project Description */}
-            <Typography variant="h4" sx={{ mt: 2 }}>
+            <Typography variant="h4" component="h3" sx={{ mt: 2 }}>
               {projects[selectedTab].title}
             </Typography>
             <Typography variant="body1" sx={{ mt: 1 }}>
