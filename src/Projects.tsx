@@ -76,17 +76,16 @@ export default function ProjectsTabs() {
             About me:
           </Typography>
           <Typography>
-            Hi, I’m Joey Heil, a gameplay programmer with about four years of
-            experience building personal projects and participating in game
-            jams. I’m currently looking for opportunities where I can bring my
-            passion for gaming and technical skills into a professional setting.
-            I work primarily in Unity, but I’ve also spent time in Unreal and
-            even dabbled in web development (this portfolio included). As an
-            avid gamer, I draw a lot of inspiration from the worlds and
-            mechanics I enjoy most, especially in survival games, MMOs, and FPS
-            titles. Outside of development, you’ll usually find me on the soccer
-            field, in the weight room, or hanging out in discord playing games
-            with my friends.
+            I’m a Unity and software developer with a strong focus on gameplay
+            programming, UI systems, and creating smooth, engaging user
+            experiences. Over the past few years, I’ve worked on projects
+            ranging from narrative card games and web development (including
+            this site) to platformers built during game jams, all while learning
+            to deliver clean, maintainable code under tight deadlines. I enjoy
+            solving problems through code and seeing those solutions come to
+            life as playable mechanics or polished interfaces. Outside of
+            development, I enjoy staying active and connecting with friends
+            through games and sports.
           </Typography>
         </Box>
         <Box>
