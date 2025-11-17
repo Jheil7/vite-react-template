@@ -156,7 +156,7 @@ const toolsTech = [
   { name: "Game Jams", icon: <SportsEsportsIcon fontSize="large" /> },
   { name: "Trello", icon: <ViewKanbanIcon fontSize="large" /> },
   { name: "Jira", icon: <AssignmentTurnedInIcon fontSize="large" /> },
-  { name: "Collaboration", icon: <GroupsIcon fontSize="large" /> },
+  { name: "AI", icon: <GroupsIcon fontSize="large" /> },
 ];
 
 export default function ProjectsTabs() {
