@@ -84,14 +84,14 @@ const webDevProjects: Project[] = [
   {
     title: "This Portfolio",
     description: `Tech: React, TypeScript, Material UI, Railway
-
+                  
     Highlights:
-        • Designed a clean multi-section layout featuring a skills overview, game dev projects, and web dev projects
-        • Implemented nested tab navigation with dynamic content switching based on the selected category
-        • Built reusable UI components using the MUI Box, Grid, Card, and Tabs systems
-        • Added a persistent AppBar with resume download support and contextual page navigation
-        • Created a footer with external links to GitHub, LinkedIn, and Itch.io
-        • Deployed to Vercel with production bundling and automatic redeployment on push
+                • Designed a clean multi-section layout featuring a skills overview, game dev projects, and web dev projects
+                • Implemented nested tab navigation with dynamic content switching based on the selected category
+                • Built reusable UI components using the MUI Box, Grid, Card, and Tabs systems
+                • Added a persistent AppBar with resume download support and contextual page navigation
+                • Created a footer with external links to GitHub, LinkedIn, and Itch.io
+                • Deployed to Vercel with production bundling and automatic redeployment on push
 
         Focus Areas: component composition, state-driven UI, responsive layout, custom MUI theming`,
     //image: "/images/PortfolioImage.png",
@@ -99,8 +99,7 @@ const webDevProjects: Project[] = [
   },
   {
     title: "Pizza Menu",
-    description: `
-    Tech: React, JavaScript, CSS, Vercel
+    description: `Tech: React, JavaScript, CSS, Vercel
 
     Highlights:
     • Built a reusable Pizza component used to render images, ingredients, and pricing
@@ -116,8 +115,7 @@ const webDevProjects: Project[] = [
   },
   {
     title: "Roster App",
-    description: `
-    Tech: React, JavaScript, CSS, Vercel
+    description: `Tech: React, JavaScript, CSS, Vercel
 
     Highlights:
     • Created an input-driven system for adding new players with automatic list rendering
@@ -203,7 +201,7 @@ export default function ProjectsTabs() {
             maxWidth={900}
             sx={{ display: "inline-block" }}
           >
-            <Grid mt={1} container spacing={4} justifyContent="center">
+            <Grid container spacing={4} justifyContent="center">
               {/* Game Dev column */}
               <Grid item xs={12}>
                 <Typography
@@ -246,7 +244,7 @@ export default function ProjectsTabs() {
                 </Grid>
               </Grid>
               {/* Web Dev column */}
-              <Grid xs={12} md={12}>
+              <Grid item xs={12}>
                 <Typography
                   variant="h5"
                   component="h3"
@@ -288,7 +286,7 @@ export default function ProjectsTabs() {
               </Grid>
 
               {/* Tools column */}
-              <Grid xs={12} md={12}>
+              <Grid item xs={12}>
                 <Typography
                   variant="h5"
                   component="h3"
@@ -468,11 +466,11 @@ export default function ProjectsTabs() {
 
             {/* Project Description */}
 
-            <Typography variant="h4" component="h3" sx={{ mt: 2 }}>
+            <Typography variant="h4" component="h3">
               {activeProjects[activeTabIndex].title}
             </Typography>
             <Box className="faded-panel">
-              <Typography variant="body1" sx={{ mt: 1 }} whiteSpace="pre-line">
+              <Typography variant="body1" whiteSpace="pre-line">
                 {activeProjects[activeTabIndex].description}
               </Typography>
             </Box>
