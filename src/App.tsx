@@ -6,11 +6,11 @@ import "./index.css";
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <Header /> {/* Always visible */}
       <Projects />
       <Contact />
-    </React.Fragment>
+    </>
   );
 };
 

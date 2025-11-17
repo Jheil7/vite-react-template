@@ -2,14 +2,32 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
-import { Tabs, Tab, Button, Card, CardContent, Grid2 } from "@mui/material";
+import { Tabs, Tab, Button, Grid2 } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import PublicIcon from "@mui/icons-material/Public";
-import BuildIcon from "@mui/icons-material/Build";
+import CodeIcon from "@mui/icons-material/Code";
+import DataObjectIcon from "@mui/icons-material/DataObject";
+import JavascriptIcon from "@mui/icons-material/Javascript";
+import HtmlIcon from "@mui/icons-material/Html";
+import CssIcon from "@mui/icons-material/Css";
+import StorageIcon from "@mui/icons-material/Storage";
+import WebIcon from "@mui/icons-material/Web";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import GroupsIcon from "@mui/icons-material/Groups";
+import ViewKanbanIcon from "@mui/icons-material/ViewKanban";
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  image?: string;
+  linkURL: string;
+  altdescription?: string;
+  video?: string; // optional
+};
+
+const gameDevProjects: Project[] = [
   {
     title: "Tectonicus",
     image: "/images/Tectonicus.png",
@@ -61,8 +79,94 @@ const projects = [
   },
 ];
 
+const webDevProjects: Project[] = [
+  {
+    title: "This Portfolio",
+    description: `Tech: React, TypeScript, Material UI, Railway
+
+    Highlights:
+        • Designed a clean multi-section layout featuring a skills overview, game dev projects, and web dev projects
+        • Implemented nested tab navigation with dynamic content switching based on the selected category
+        • Built reusable UI components using the MUI Box, Grid, Card, and Tabs systems
+        • Added a persistent AppBar with resume download support and contextual page navigation
+        • Created a footer with external links to GitHub, LinkedIn, and Itch.io
+        • Deployed to Vercel with production bundling and automatic redeployment on push
+
+        Focus Areas: component composition, state-driven UI, responsive layout, custom MUI theming`,
+    //image: "/images/PortfolioImage.png",
+    linkURL: "https://joeyheil.up.railway.app/",
+  },
+  {
+    title: "Pizza Menu",
+    description: `
+    Tech: React, JavaScript, CSS, Vercel
+
+    Highlights:
+    • Built a reusable Pizza component used to render images, ingredients, and pricing
+    • Implemented conditional rendering to gray out pizzas and label them “Sold Out” when out of stock
+    • Added a dynamic footer that shows whether the restaurant is currently open based on real-time hours
+    • Practiced component mapping, props-driven UI, and basic styling
+    • Designed a purposefully small but functional app demonstrating component structure and flow
+
+    Focus Areas: conditional rendering, component mapping, UI state design
+    `,
+    image: "/images/PizzaMenu.png",
+    linkURL: "https://pizza-menu-joeyh.vercel.app/",
+  },
+  {
+    title: "Roster App",
+    description: `
+    Tech: React, JavaScript, CSS, Vercel
+
+    Highlights:
+    • Created an input-driven system for adding new players with automatic list rendering
+    • Implemented a dynamic counter that shows the total roster size and how many players have paid
+    • Added toggles and sorting options: alphabetical order, payment status, or original entry order
+    • Built a clean UI allowing users to remove individual players or fully reset the roster
+    • Developed reusable components for list items, checkboxes, and sorting controls
+
+    Focus Areas: state management, controlled inputs, sorting/filter logic, interactive UI design
+    `,
+    image: "/images/RosterImage.png",
+    linkURL: "https://soccer-roster-joeyh.vercel.app/",
+  },
+];
+
+const gameDevTech = [
+  { name: "Unity", icon: <SportsEsportsIcon fontSize="large" /> },
+  { name: "Unreal Engine", icon: <CodeIcon fontSize="large" /> },
+  { name: "C# / C++", icon: <DataObjectIcon fontSize="large" /> },
+  { name: "ScriptableObjects", icon: <StorageIcon fontSize="large" /> },
+  { name: "Shader Graph", icon: <WebIcon fontSize="large" /> },
+  { name: "UI Toolkit / uGUI", icon: <ViewKanbanIcon fontSize="large" /> },
+];
+
+const webDevTech = [
+  { name: "JavaScript", icon: <JavascriptIcon fontSize="large" /> },
+  { name: "React", icon: <CodeIcon fontSize="large" /> },
+  { name: "Node.js", icon: <StorageIcon fontSize="large" /> },
+  { name: "Next.js", icon: <WebIcon fontSize="large" /> },
+  { name: "HTML", icon: <HtmlIcon fontSize="large" /> },
+  { name: "CSS", icon: <CssIcon fontSize="large" /> },
+];
+
+const toolsTech = [
+  { name: "Git / GitHub", icon: <GitHubIcon fontSize="large" /> },
+  { name: "Itch.io", icon: <WebIcon fontSize="large" /> },
+  { name: "Game Jams", icon: <SportsEsportsIcon fontSize="large" /> },
+  { name: "Trello", icon: <ViewKanbanIcon fontSize="large" /> },
+  { name: "Jira", icon: <AssignmentTurnedInIcon fontSize="large" /> },
+  { name: "Collaboration", icon: <GroupsIcon fontSize="large" /> },
+];
+
 export default function ProjectsTabs() {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedMainTab, setSelectedMainTab] = useState(0);
+  const [selectedGameDevTab, setGameDevSelectedTab] = useState(0);
+  const [selectedWebDevTab, setWebDevSelectedTab] = useState(0);
+  const activeProjects =
+    selectedMainTab === 0 ? gameDevProjects : webDevProjects;
+  const activeTabIndex =
+    selectedMainTab === 0 ? selectedGameDevTab : selectedWebDevTab;
 
   return (
     <Container maxWidth="xl">
@@ -73,9 +177,9 @@ export default function ProjectsTabs() {
       >
         <Box>
           <Typography variant="h2" component="h2">
-            About me:
+            About me
           </Typography>
-          <Typography>
+          <Typography className="faded-panel">
             I’m a Unity and software developer with a strong focus on gameplay
             programming, UI systems, and creating smooth, engaging user
             experiences. Over the past few years, I’ve worked on projects
@@ -88,156 +192,306 @@ export default function ProjectsTabs() {
             through games and sports.
           </Typography>
         </Box>
-        <Box>
+        <Box sx={{ mt: 6, textAlign: "center" }}>
           <Typography variant="h2" component="h2">
-            Skills:
+            Skills
           </Typography>
-          <Grid2 container spacing={2} justifyContent="center">
-            <Card
-              sx={{
-                padding: 4,
-                maxWidth: 400,
-                boxShadow: 6,
-                "&:hover": { boxShadow: 12 },
-              }}
-            >
-              <Typography variant="h4" component="h3">
-                Game Development:
-              </Typography>
-              <Typography variant="h5" component="h4">
-                <CardContent>
-                  {<SportsEsportsIcon fontSize="large" />}
-                </CardContent>
-                <ul
-                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+
+          <Box
+            className="faded-panel"
+            maxWidth={900}
+            sx={{ display: "inline-block" }}
+          >
+            <Grid2 container spacing={4} justifyContent="center">
+              {/* Game Dev column */}
+              <Grid2 xs={12} md={4}>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  sx={{ mb: 2, fontWeight: 600 }}
                 >
-                  <li>Unity and Unreal Engine</li>
-                  <li>C#/C++</li>
-                  <li>ScriptableObjects</li>
-                  <li>Shader Graph</li>
-                  <li>Cinemachine</li>
-                  <li>Unity’s New Input System</li>
-                  <li>uGUI / UI Toolkit</li>
-                  <li>Animation Playback</li>
-                </ul>
-              </Typography>
-            </Card>
-            <Card
-              sx={{
-                padding: 4,
-                maxWidth: 400,
-                boxShadow: 6,
-                "&:hover": { boxShadow: 12 },
-              }}
-            >
-              <Typography variant="h4" component="h3">
-                Tools and Collaboration:
-              </Typography>
-              <Typography variant="h5" component="h4">
-                <CardContent>{<BuildIcon fontSize="large" />}</CardContent>
-                <ul
-                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+                  Game Development
+                </Typography>
+                <Grid2 container spacing={2} justifyContent="center">
+                  {gameDevTech.map((tech) => (
+                    <Grid2 key={tech.name}>
+                      <Box
+                        sx={{
+                          width: 110,
+                          height: 110,
+                          borderRadius: 3,
+                          backgroundColor: "rgba(255,255,255,0.85)",
+                          border: "1px solid rgba(0,0,0,0.1)",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "0.2s",
+                          boxShadow: 1,
+                          "&:hover": {
+                            transform: "translateY(-3px)",
+                            boxShadow: 3,
+                            backgroundColor: "rgba(255,255,255,0.95)",
+                          },
+                        }}
+                      >
+                        {tech.icon}
+                        <Typography sx={{ mt: 1, fontSize: 14 }}>
+                          {tech.name}
+                        </Typography>
+                      </Box>
+                    </Grid2>
+                  ))}
+                </Grid2>
+              </Grid2>
+              {/* Web Dev column */}
+              <Grid2 xs={12} md={4}>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  sx={{ mb: 2, fontWeight: 600 }}
                 >
-                  <li>Git</li>
-                  <li>Github</li>
-                  <li>Itch.io Deployment</li>
-                  <li>Gamejams</li>
-                  <li>Trello</li>
-                  <li>Jira</li>
-                </ul>
-              </Typography>
-            </Card>
-            <Card
-              sx={{
-                padding: 4,
-                maxWidth: 400,
-                boxShadow: 6,
-                "&:hover": { boxShadow: 12 },
-              }}
-            >
-              <Typography variant="h4" component="h3">
-                Web Development:
-              </Typography>
-              <CardContent>{<PublicIcon fontSize="large" />}</CardContent>
-              <Typography variant="h5" component="h4">
-                <ul
-                  style={{ listStyleType: "none", paddingLeft: 0, margin: 0 }}
+                  Web Development
+                </Typography>
+                <Grid2 container spacing={2} justifyContent="center">
+                  {webDevTech.map((tech) => (
+                    <Grid2 key={tech.name}>
+                      <Box
+                        sx={{
+                          width: 110,
+                          height: 110,
+                          borderRadius: 3,
+                          backgroundColor: "rgba(255,255,255,0.85)",
+                          border: "1px solid rgba(0,0,0,0.1)",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "0.2s",
+                          boxShadow: 1,
+                          "&:hover": {
+                            transform: "translateY(-3px)",
+                            boxShadow: 3,
+                            backgroundColor: "rgba(255,255,255,0.95)",
+                          },
+                        }}
+                      >
+                        {tech.icon}
+                        <Typography sx={{ mt: 1, fontSize: 14 }}>
+                          {tech.name}
+                        </Typography>
+                      </Box>
+                    </Grid2>
+                  ))}
+                </Grid2>
+              </Grid2>
+
+              {/* Tools column */}
+              <Grid2 xs={12} md={4}>
+                <Typography
+                  variant="h5"
+                  component="h3"
+                  sx={{ mb: 2, fontWeight: 600 }}
                 >
-                  <li>Javascript</li>
-                  <li>React</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                </ul>
-              </Typography>
-            </Card>
-          </Grid2>
+                  Tools & Collaboration
+                </Typography>
+                <Grid2 container spacing={2} justifyContent="center">
+                  {toolsTech.map((tech) => (
+                    <Grid2 key={tech.name}>
+                      <Box
+                        sx={{
+                          width: 110,
+                          height: 110,
+                          borderRadius: 3,
+                          backgroundColor: "rgba(255,255,255,0.85)",
+                          border: "1px solid rgba(0,0,0,0.1)",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "0.2s",
+                          boxShadow: 1,
+                          "&:hover": {
+                            transform: "translateY(-3px)",
+                            boxShadow: 3,
+                            backgroundColor: "rgba(255,255,255,0.95)",
+                          },
+                        }}
+                      >
+                        {tech.icon}
+                        <Typography sx={{ mt: 1, fontSize: 14 }}>
+                          {tech.name}
+                        </Typography>
+                      </Box>
+                    </Grid2>
+                  ))}
+                </Grid2>
+              </Grid2>
+            </Grid2>
+          </Box>
         </Box>
         <Box>
           <Typography variant="h2" component="h2">
             Projects
           </Typography>
-          <Box>
+          <Box className="faded-panel" sx={{ display: "inline-block" }}>
             {/* Tabs Navigation */}
+
             <Tabs
-              value={selectedTab}
-              onChange={(_, newValue) => setSelectedTab(newValue)}
+              color="#0D47A1"
+              value={selectedMainTab}
+              onChange={(_, newValue) => setSelectedMainTab(newValue)}
               centered
+              sx={{
+                "& .MuiTab-root": {
+                  textTransform: "none",
+                  fontSize: "24px",
+                  mx: 1,
+                  px: 2,
+                  borderRadius: "20px",
+                  minHeight: "40px",
+                },
+                "& .Mui-selected": {
+                  backgroundColor: "#0D47A1",
+                  color: "white !important",
+                },
+                "& .MuiTabs-indicator": {
+                  display: "none",
+                },
+              }}
             >
-              {projects.map((project, index) => (
-                <Tab key={index} label={project.title} sx={{ fontSize: 20 }} />
-              ))}
+              <Tab label="Game Dev" sx={{ fontSize: 24 }} />
+              <Tab label="Web Dev" sx={{ fontSize: 24 }} />
             </Tabs>
+            <Divider sx={{ my: 1.5, opacity: 0.6 }} />
+            {/*Display GAME Dev Projects*/}
+            {selectedMainTab === 0 && (
+              <Tabs
+                value={selectedGameDevTab}
+                onChange={(_, newValue) => setGameDevSelectedTab(newValue)}
+                centered
+                sx={{
+                  "& .MuiTab-root": {
+                    textTransform: "none",
+                    fontSize: "16px",
+                    mx: 1,
+                    px: 2,
+                    borderRadius: "20px",
+                    minHeight: "40px",
+                  },
+                  "& .Mui-selected": {
+                    backgroundColor: "#0D47A1",
+                    color: "white !important",
+                  },
+                  "& .MuiTabs-indicator": {
+                    display: "none",
+                  },
+                }}
+              >
+                {gameDevProjects.map((project, index) => (
+                  <Tab
+                    key={index}
+                    label={project.title}
+                    sx={{ fontSize: 14 }}
+                  />
+                ))}
+              </Tabs>
+            )}
+            {/*Display WEB Dev Projects*/}
+            {selectedMainTab === 1 && (
+              <Tabs
+                value={selectedWebDevTab}
+                onChange={(_, newValue) => setWebDevSelectedTab(newValue)}
+                centered
+                sx={{
+                  "& .MuiTab-root": {
+                    textTransform: "none",
+                    fontSize: "16px",
+                    mx: 1,
+                    px: 2,
+                    borderRadius: "20px",
+                    minHeight: "40px",
+                  },
+                  "& .Mui-selected": {
+                    backgroundColor: "#0D47A1",
+                    color: "white !important",
+                  },
+                  "& .MuiTabs-indicator": {
+                    display: "none",
+                  },
+                }}
+              >
+                {webDevProjects.map((project, index) => (
+                  <Tab
+                    key={index}
+                    label={project.title}
+                    sx={{ fontSize: 14 }}
+                  />
+                ))}
+              </Tabs>
+            )}
           </Box>
 
           {/* Project Content */}
-          <Box sx={{ mt: 3, mb: 10 }}>
-            {/* GIF Preview */}
-            {/* <img
-              src={projects[selectedTab].gif}
-              alt={projects[selectedTab].title}
-              style={{ width: "100%", maxWidth: "900px", borderRadius: "8px" }}
-            /> */}
-            {projects[selectedTab].video ? (
+          <Box
+            sx={{
+              mt: 3,
+              mb: 10,
+            }}
+          >
+            {activeProjects[activeTabIndex]?.video ? (
               <video
-                src={projects[selectedTab].video}
+                src={gameDevProjects[selectedGameDevTab].video}
                 controls
                 playsInline
                 style={{
                   width: "100%",
                   maxWidth: "900px",
                   borderRadius: "8px",
+                  objectFit: "contain",
                 }}
               />
             ) : (
               <img
-                src={projects[selectedTab].image}
-                alt={projects[selectedTab].altdescription}
+                src={activeProjects[activeTabIndex].image}
+                alt={activeProjects[activeTabIndex]?.altdescription}
                 style={{
                   width: "100%",
                   maxWidth: "900px",
+                  maxHeight: "505px",
                   borderRadius: "8px",
+                  objectFit: "contain",
                 }}
               />
             )}
 
             {/* Project Description */}
-            <Typography variant="h4" component="h3" sx={{ mt: 2 }}>
-              {projects[selectedTab].title}
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 1 }}>
-              {projects[selectedTab].description}
-            </Typography>
 
-            {/* Itch.io Link Button */}
+            <Typography variant="h4" component="h3" sx={{ mt: 2 }}>
+              {activeProjects[activeTabIndex].title}
+            </Typography>
+            <Box className="faded-panel">
+              <Typography variant="body1" sx={{ mt: 1 }} whiteSpace="pre-line">
+                {activeProjects[activeTabIndex].description}
+              </Typography>
+            </Box>
+
+            {/*Link Button */}
             <Button
-              sx={{ mt: 2, boxShadow: 6, "&:hover": { boxShadow: 12 } }}
+              sx={{
+                backgroundColor: "#0D47A1",
+                mt: 6,
+                boxShadow: 6,
+                "&:hover": { boxShadow: 12, backgroundColor: "#3175daff" },
+              }}
               variant="contained"
-              color="primary"
-              href={projects[selectedTab].linkURL}
+              href={activeProjects[activeTabIndex].linkURL}
               target="_blank"
               rel="noopener noreferrer"
             >
-              View on Itch.io
+              {activeProjects === gameDevProjects
+                ? "View on Itch.io"
+                : "View website"}
             </Button>
           </Box>
         </Box>

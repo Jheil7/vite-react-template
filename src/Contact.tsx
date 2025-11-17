@@ -10,16 +10,23 @@ import LanguageIcon from "@mui/icons-material/Language";
 
 export default function Contact() {
   const contactInfo = "Email Adress: jmhe222@gmail.com";
-  const backgroundColor = "#1976d2";
+  //const backgroundColor = "#1976d2";
 
   return (
-    <Box sx={{ mt: 2, py: 3, width: "100%", backgroundColor: backgroundColor }}>
-      <BottomNavigation
-        showLabels
-        sx={{ my: 3, backgroundColor: backgroundColor }}
-      >
+    <Box
+      sx={{
+        mt: 2,
+        py: 3,
+        width: "100%",
+        backgroundColor: "#0D47A1",
+        borderTop: "4px solid #1E88E5",
+      }}
+    >
+      <BottomNavigation showLabels sx={{ my: 3, backgroundColor: "#0D47A1" }}>
         <BottomNavigationAction
-          sx={{ color: "#fff" }}
+          sx={{
+            color: "#fff",
+          }}
           label={<span style={{ fontSize: 20 }}>Github</span>}
           icon={<GitHubIcon fontSize="large" />}
           target="_blank"

@@ -59,7 +59,10 @@ export default function DrawerAppBar(props: Props) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav" color="primary">
+      <AppBar
+        component="nav"
+        sx={{ backgroundColor: "#0D47A1", borderBottom: "4px solid #1E88E5" }}
+      >
         <Container maxWidth="xl" sx={{ p: 0 }}>
           <Toolbar>
             <IconButton
@@ -84,7 +87,7 @@ export default function DrawerAppBar(props: Props) {
                 //to={item.path}
 
                 sx={{ color: "#fff" }}
-                href="src\assets\Joey Heil GD CV.pdf"
+                href="src\assets\Joey Heil WD CV.pdf"
                 download="Joey Heil Resume"
               >
                 Download Resume
