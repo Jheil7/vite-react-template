@@ -2,7 +2,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
-import { Tabs, Tab, Button, Grid2 } from "@mui/material";
+import { Tabs, Tab, Button } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
@@ -202,19 +203,19 @@ export default function ProjectsTabs() {
             maxWidth={900}
             sx={{ display: "inline-block" }}
           >
-            <Grid2 container spacing={4} justifyContent="center">
+            <Grid mt={1} container spacing={4} justifyContent="center">
               {/* Game Dev column */}
-              <Grid2 xs={12} md={4}>
+              <Grid item xs={12}>
                 <Typography
                   variant="h5"
                   component="h3"
-                  sx={{ mb: 2, fontWeight: 600 }}
+                  sx={{ mb: 2, fontWeight: 600, justifyContent: "center" }}
                 >
                   Game Development
                 </Typography>
-                <Grid2 container spacing={2} justifyContent="center">
+                <Grid container spacing={2} justifyContent="center">
                   {gameDevTech.map((tech) => (
-                    <Grid2 key={tech.name}>
+                    <Grid item key={tech.name}>
                       <Box
                         sx={{
                           width: 110,
@@ -240,12 +241,12 @@ export default function ProjectsTabs() {
                           {tech.name}
                         </Typography>
                       </Box>
-                    </Grid2>
+                    </Grid>
                   ))}
-                </Grid2>
-              </Grid2>
+                </Grid>
+              </Grid>
               {/* Web Dev column */}
-              <Grid2 xs={12} md={4}>
+              <Grid xs={12} md={12}>
                 <Typography
                   variant="h5"
                   component="h3"
@@ -253,9 +254,9 @@ export default function ProjectsTabs() {
                 >
                   Web Development
                 </Typography>
-                <Grid2 container spacing={2} justifyContent="center">
+                <Grid container spacing={2} justifyContent="center">
                   {webDevTech.map((tech) => (
-                    <Grid2 key={tech.name}>
+                    <Grid item key={tech.name}>
                       <Box
                         sx={{
                           width: 110,
@@ -281,13 +282,13 @@ export default function ProjectsTabs() {
                           {tech.name}
                         </Typography>
                       </Box>
-                    </Grid2>
+                    </Grid>
                   ))}
-                </Grid2>
-              </Grid2>
+                </Grid>
+              </Grid>
 
               {/* Tools column */}
-              <Grid2 xs={12} md={4}>
+              <Grid xs={12} md={12}>
                 <Typography
                   variant="h5"
                   component="h3"
@@ -295,9 +296,9 @@ export default function ProjectsTabs() {
                 >
                   Tools & Collaboration
                 </Typography>
-                <Grid2 container spacing={2} justifyContent="center">
+                <Grid container spacing={2} justifyContent="center">
                   {toolsTech.map((tech) => (
-                    <Grid2 key={tech.name}>
+                    <Grid item key={tech.name}>
                       <Box
                         sx={{
                           width: 110,
@@ -323,11 +324,11 @@ export default function ProjectsTabs() {
                           {tech.name}
                         </Typography>
                       </Box>
-                    </Grid2>
+                    </Grid>
                   ))}
-                </Grid2>
-              </Grid2>
-            </Grid2>
+                </Grid>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
         <Box>

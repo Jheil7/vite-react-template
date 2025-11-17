@@ -1,12 +1,10 @@
 body {
   background: linear-gradient(
     to right,
-    #fddea1 0%,
-    #f8eace 10%,
-    #ffe6ce 25%,
-    #ffe6ce 75%,
-    #f8eace 90%,
-    #fddea1 100%
+    #c2c1c1 0%,
+    #f1f1e6 25%,
+    #f1f1e6 75%,
+    #c2c1c1 100%
   );
   margin: 0;
   padding: 0;
