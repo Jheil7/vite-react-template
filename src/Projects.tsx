@@ -98,6 +98,22 @@ const webDevProjects: Project[] = [
     linkURL: "https://joeyheil.up.railway.app/",
   },
   {
+    title: "WoW Guild Website",
+    description: `Tech: Next.js, React, JavaScript, TailwindCSS, Vercel, REST APIs, GraphQL, OAuth
+
+Highlights:
+• Built a live guild website displaying roster and raid progression data
+• Integrated Blizzard and WarcraftLogs APIs using server-side data fetching
+• Implemented OAuth-secured API requests and environment-based secrets
+• Created a custom guild application flow with Discord webhook integration
+• Designed responsive layouts with Tailwind for desktop and mobile
+
+Focus Areas: server-side rendering, API integration, OAuth flows, responsive UI
+`,
+    image: "/images/GuildWebsite.png",
+    linkURL: "https://raise-your-eyes.vercel.app/",
+  },
+  {
     title: "Pizza Menu",
     description: `Tech: React, JavaScript, CSS, Vercel
 
